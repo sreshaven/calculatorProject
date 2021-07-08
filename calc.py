@@ -10,11 +10,11 @@ timezoneDict = {
     "AK": 4,
     "HAST": 5,
 }
+currentTime = input("Enter your current time: ")
 currentTZ = timezoneDict.get(input("Enter your time zone abbreviation: ").upper())
-currentTime = input("Enter your current time in 24 hour military time (ex - 00:00): ")
 inputDesiredTZ = input("Enter your desired time zone abbreviation: ").upper()
 desiredTZ = timezoneDict.get(inputDesiredTZ.upper())
-
+print("Converting...")
 timeComparisons = [
     [0, 1, 2, 3, 4, 5],
     [-1, 0, 1, 2, 3, 4],
@@ -38,8 +38,8 @@ elif len(currentTime) == 4:
 desiredTotalMins = totalMins + ((timeComparisons[currentTZ][desiredTZ]) * 60)
 desiredHours = desiredTotalMins / 60
 desiredMins = desiredTotalMins % 60
-if(desiredHours >= 24):
-    desiredHours -= 24
-if(desiredHours < 0):
-    desiredHours = 24 + desiredHours 
+if(desiredHours > 12):
+    desiredHours -= 12
+if(desiredHours < 1):
+    desiredHours += 12    
 print(str(int(desiredHours)) + ":" + str(desiredMins) + " " + inputDesiredTZ)
