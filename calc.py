@@ -1,5 +1,7 @@
+# created by Sresha Ventrapragada and Crystal Liang
 print("Welcome to the Time Zone Calculator!")
 print("Time Zones: PT, MT, CT, ET, AK, HAST")
+
 timezoneDict = {
     "PT": 0,
     "MT": 1,
